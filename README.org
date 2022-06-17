@@ -1,0 +1,17 @@
+#+TITLE:   doom emacs js hacks
+
+* Description
+trying to make js/ts work better for me
+relies on doom emacs
+
+put in ~/.doom.d/modules/tl
+
+in doom.d/init.el:
+add to
+
+#+begin_src lisp
+(doom!
+       :tl
+       js
+)
+#+end_src
