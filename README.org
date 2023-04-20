@@ -8,9 +8,9 @@ Indentation, Highlighting, and LSP work.
 * Install
 Clone this repo in:
 
-```
-~/.doom.d/modules/tl
-```
+#+begin_src
+~/.doom.d/modules/
+#+end_src
 
 in doom.d/init.el:
 add:
