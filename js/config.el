@@ -62,9 +62,6 @@
         eglot-auto-display-help-buffer nil)
   :config
   (add-to-list 'eglot-server-programs '((tl-js-mode tl-ts-mode tl-tsx-mode) . ("typescript-language-server" "--stdio")))
-  (add-to-list 'eglot-server-programs '(tl-ts-mode . ("typescript-language-server" "--stdio")))
-  (add-to-list 'eglot-server-programs '(tl-tsx-mode . ("typescript-language-server" "--stdio")))
-
   )
 
 ;; indentation
