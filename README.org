@@ -1,13 +1,19 @@
-#+TITLE: doom emacs js hacks
+#+TITLE: doom emacs javascript module
 
 * Description
-trying to make js/ts work better for me
-relies on doom emacs
+Trying to make js{x}/ts{x} work better in doom emacs
 
-put in ~/.doom.d/modules/tl
+Indentation, Highlighting, and LSP work.
+
+* Install
+Clone this repo in:
+
+```
+~/.doom.d/modules/tl
+```
 
 in doom.d/init.el:
-add to
+add:
 
 #+begin_src lisp
 (doom!
@@ -17,8 +23,25 @@ add to
 #+end_src
 
 
-use `(lsp +eglot)` instead of just `lsp`
+in doom.d/init.el use:
 
-do Not enable doom's javascript module in init.el
+#+begin_src lisp
+(lsp +eglot)
+#+end_src
 
-`(lsp +eglot)` will change the lsp client for other languages, like rust and go. Seems fine if not better so far.
+instead of just
+#+begin_src lisp
+lsp
+#+end_src
+
+
+ This might/will change the lsp client to eglot for other languages, like rust and go. This seems fine if not better so far.
+
+Do Not enable doom's javascript module in init.el
+
+* More info
+This doesn't use any of the ancient, built in javascript emacs stuff. It's new blank major mode, so the old modes like js2 don't load.
+
+Eglot for the LSP client. Flycheck just works.
+
+Tree Sitter for syntax highlighting and indentation
