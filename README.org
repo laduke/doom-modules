@@ -1,4 +1,4 @@
-#+TITLE:   doom emacs js hacks
+#+TITLE: doom emacs js hacks
 
 * Description
 trying to make js/ts work better for me
@@ -15,3 +15,10 @@ add to
        js
 )
 #+end_src
+
+
+use `(lsp +eglot)` instead of just `lsp`
+
+do Not enable doom's javascript module in init.el
+
+`(lsp +eglot)` will change the lsp client for other languages, like rust and go. Seems fine if not better so far.
