@@ -23,18 +23,7 @@
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . tl-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tl-tsx-mode))
 
-
-
-(eval-after-load 'tl-js-mode
-  '(add-hook 'tl-js-mode-hook #'add-node-modules-path))
-
-(eval-after-load 'tl-ts-mode
-  '(add-hook 'tl-ts-mode-hook #'add-node-modules-path))
-
-(eval-after-load 'tl-tsx-mode
-  '(add-hook 'tl-tsx-mode-hook #'add-node-modules-path)
-  )
-
+(eval-after-load 'tl-js-mode '(add-hook 'tl-js-mode-hook #'add-node-modules-path))
 
 ;; syntax highlighting
 (use-package! tree-sitter
@@ -62,8 +51,7 @@
         eglot-auto-display-help-buffer nil)
   :config
   (add-to-list 'eglot-server-programs '((tl-js-mode) . ("typescript-language-server" "--stdio")))
-  ;; (add-to-list 'eglot-stay-out-of 'flymake)
-  ;; (add-to-list 'eglot-managed-mode-hook (lambda () (flymake-eslint-enable) (message "WAKKA")))
+  (add-to-list 'eglot-stay-out-of 'flymake)
   )
 
 ;; indentation
@@ -77,6 +65,5 @@
 
 ;; more lints from typescript
 (use-package flymake-eslint
-  ;; :after (eglot)
-  ;; :hook ((tl-tsx-mode) . (lambda () (flymake-eslint-enable)(message "HELLO3")))
+  :hook ((tl-js-mode) . (lambda () (flymake-eslint-enable)))
   )
