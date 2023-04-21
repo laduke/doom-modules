@@ -51,7 +51,7 @@
 ;; lsp client, formatting, linting, renaming, etc...
 (use-package! eglot
   :defines (eglot-server-programs)
-  :hook (((tl-js-mode tl-ts-mode tl-tsx-mode) . eglot-ensure))
+  :hook (((tl-js-mode) . eglot-ensure))
   :init
   (setq eglot-sync-connect 1
         eglot-connect-timeout 10
@@ -61,7 +61,9 @@
         ;;      its popup rule causes eglot to steal focus too often.
         eglot-auto-display-help-buffer nil)
   :config
-  (add-to-list 'eglot-server-programs '((tl-js-mode tl-ts-mode tl-tsx-mode) . ("typescript-language-server" "--stdio")))
+  (add-to-list 'eglot-server-programs '((tl-js-mode) . ("typescript-language-server" "--stdio")))
+  ;; (add-to-list 'eglot-stay-out-of 'flymake)
+  ;; (add-to-list 'eglot-managed-mode-hook (lambda () (flymake-eslint-enable) (message "WAKKA")))
   )
 
 ;; indentation
@@ -70,5 +72,11 @@
 (use-package tsi
   :after tree-sitter
   :commands (tsi-typescript-mode)
-  :hook (((tl-js-mode tl-ts-mode tl-tsx-mode) . (lambda () (tsi-typescript-mode 1))))
+  :hook (((tl-js-mode) . (lambda () (tsi-typescript-mode 1))))
+  )
+
+;; more lints from typescript
+(use-package flymake-eslint
+  ;; :after (eglot)
+  ;; :hook ((tl-tsx-mode) . (lambda () (flymake-eslint-enable)(message "HELLO3")))
   )

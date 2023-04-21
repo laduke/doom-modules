@@ -45,3 +45,11 @@ This doesn't use any of the ancient, built in javascript emacs stuff. It's new b
 Eglot for the LSP client. Flycheck just works.
 
 Tree Sitter for syntax highlighting and indentation
+
+* TODO
+I haven't been able to get flymake-eslint-enable to start automatically. Something in eglot kills it. Start it manually if you want.
+#+begin_src
+flymake-eslint-enable
+#+end_src
+
+this gets eslint lints working. eglot's flycheck shows only typescript lints.
